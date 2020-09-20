@@ -10,10 +10,9 @@
 
 <script>
 export default {
-  name: "Button",
+  name: "RButton",
   props: {
-    color: String,
-    onClick: Function
+    color: String
   },
   methods: {
     onButtonClick() {
@@ -29,7 +28,7 @@ export default {
         el.classList.remove("animate");
       }, 400);
 
-      this.onClick();
+      this.$emit("click");
     },
     getPosition() {
       let el = this.$refs["btn"];
@@ -110,6 +109,7 @@ $colors: (
   overflow: hidden;
   cursor: pointer;
   display: inline-block;
+  margin: 0.3rem;
 
   &.animate::after {
     position: absolute;

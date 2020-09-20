@@ -7,5 +7,5 @@ cd dist
 git init
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:railrunner166/waifu.git master:gh-pages
+git push -f https://github.com/railrunner166/waifu.git master:gh-pages
 cd -

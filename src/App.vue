@@ -1,8 +1,10 @@
 <template>
-  <div style="width: 100%; display: flex; justify-content: center;">
+  <div
+    style="width: 100%; display: flex; justify-content: center; max-width: 100vw;"
+  >
     <div>
-      <h1>Waifus!</h1>
-      <action-bar style="display: block; width: 512px">
+      <h1 style="text-align: center; width: 100%">Waifus!</h1>
+      <action-bar style="display: block; width: 512px; max-width: 80vw;">
         <r-button @click="fetchWaifu" color="green">Fetch A Waifu</r-button>
         <r-button @click="aboutModalVisible = true" color="purple">
           About
@@ -10,7 +12,7 @@
       </action-bar>
 
       <img
-        style="display: block; width: 512px; height: 512px; background-color: #999"
+        style="display: block; width: 512px; height: 512px; background-color: #999; max-width: 100vw; max-height: 100vw"
         :src="image"
         alt="Waifu"
       />

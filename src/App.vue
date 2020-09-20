@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <Button :on-click="fetchWaifu" color="green">Fetch A Waifu</Button>
+    <img :src="image" alt="Waifu" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Button from "@/components/Button";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Button
+  },
+  data() {
+    return {
+      image: null
+    };
+  },
+  methods: {
+    fetchWaifu() {
+      fetch("https://api.waifu.raildev.tech/single")
+        .then(res => res.json())
+        .then(json => {
+          this.image = json.url;
+        });
+    }
   }
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>
